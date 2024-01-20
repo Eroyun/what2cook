@@ -1,0 +1,6 @@
+.env
+.venv
+flaskenv
+qdrantenv
+data
+__pycache__

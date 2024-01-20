@@ -1,0 +1,32 @@
+services:
+  web:
+    build:
+      context: .
+    env_file:
+      - .env
+    ports:
+      - 5000:5000
+      - 5678:5678
+    environment:
+      FLASK_APP: run.py
+      FLASK_DEBUG: 0
+      QDRANT_URL: ${QDRANT_URL}
+      QDRANT_KEY: ${QDRANT_KEY}
+    develop:
+      watch:
+        - action: rebuild
+          path: web
+    command:
+      [
+        "python",
+        "-m",
+        "debugpy",
+        "--wait-for-client",
+        "--listen",
+        "0.0.0.0:5678",
+        "-m",
+        "gunicorn",
+        "--bind",
+        "0.0.0.0:5000",
+        "run:application",
+      ]
