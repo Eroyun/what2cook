@@ -1,4 +1,3 @@
-transformers
-SentencePiece
-accelerate
-protobuf
+langchain
+langchain_openai
+dotenv

@@ -1,27 +1,36 @@
-from transformers import LlamaForCausalLM, LlamaTokenizer
-import torch
-import transformers
+from dotenv import dotenv_values
 
-model_dir = "./llama-2-7b-chat-hf"
-model = LlamaForCausalLM.from_pretrained(model_dir)
-tokenizer = LlamaTokenizer.from_pretrained(model_dir)
+from langchain.prompts.chat import (
+    SystemMessagePromptTemplate,
+    MessagesPlaceholder,
+    HumanMessagePromptTemplate,
+    ChatPromptTemplate
+)
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import LLMChain
+from langchain_openai import ChatOpenAI
 
-pipeline = transformers.pipeline(
-"text-generation",
-model=model,
-tokenizer=tokenizer,
-torch_dtype=torch.float16,
-device_map="auto"
+env = dotenv_values(".env")
+
+llm = ChatOpenAI(
+    temperature=0, openai_api_key=env['OPENAI_KEY'])
+
+prompt = ChatPromptTemplate(
+    messages=[
+        SystemMessagePromptTemplate.from_template(
+            "You are a nice chatbot having a conversation with a human."
+        ),
+        # The `variable_name` here is what must align with memory
+        MessagesPlaceholder(variable_name="chat_history"),
+        HumanMessagePromptTemplate.from_template("{question}"),
+    ]
 )
 
-sequences = pipeline(
-'I have tomatoes, basil and cheese at home. What can I cook for dinner?\n',
-do_sample=True,
-top_k=10,
-num_return_sequences=1,
-eos_token_id=tokenizer.eos_token_id,
-max_length=400
-)
+memory = ConversationBufferMemory(
+    memory_key="chat_history", return_messages=True)
 
-for seq in sequences:
-    print(f"{seq['generated_text']}")
+conversation = LLMChain(llm=llm, prompt=prompt, verbose=True, memory=memory)
+
+print(conversation({"question": "my name is Eren"}))
+
+print(conversation({"question": "what is my name?"}))
