@@ -1,96 +1,134 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, FlatList, ImageSourcePropType, Pressable } from "react-native";
+import {
+    View,
+    Text,
+    Image,
+    StyleSheet,
+    FlatList,
+    ImageSourcePropType,
+    Pressable,
+    ScrollView,
+    ImageBackground
+} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-
-interface Recipe {
-    id: number;
-    title: string;
-    image: ImageSourcePropType;
-    description: string;
-    time: string;
-    rating: number;
-}
-        
-interface RecipeCardProps {
-    recipe: Recipe;
-}
+import { colors, recipes } from "../utils/constants";
+import Icon from 'react-native-vector-icons/Foundation';
 
 const SuggestedRecipesCard: React.FC = () => {
-    const recipes: Recipe[] = [
-        {
-          id: 1,
-          title: "Pasta Carbonara",
-          image: require("../../assets/test/test.jpg"),
-          description: "A classic Italian pasta dish with eggs, cheese, and bacon.",
-          time: "30 minutes",
-          rating: 4.5,
-        },
-        {
-          id: 2,
-          title: "Chicken Stir-Fry",
-          image: require("../../assets/test/test.jpg"),
-          description: "A quick and easy stir-fry with chicken and vegetables.",
-          time: "20 minutes",
-          rating: 4.2,
-        },
-      ];
-      
-  const navigation = useNavigation()
-  return (
-    <View>
-        <FlatList
-            data={recipes}
-            renderItem={({ item }) => (
+    const navigation = useNavigation();
+
+    return (
+      <View>
+        <Text style={styles.titleText}>Popular recipes</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.container}>
+            {recipes.map((item) => (
                 <Pressable
-                    onPress={() => navigation.navigate("RecipeDetails")}
-                    style={styles.item}>
-                    <Image source={item.image} style={styles.image}/>
-                    <Text>{item.title}</Text>
-                    <View style={styles.moreInfo}>
-                        <Text>{item.time}</Text>
-                        <Text> | </Text>
-                        <View style={styles.ratingInfo}>
-                            <Text style={styles.rating}>{item.rating}</Text>
-                            <FontAwesome name="star" size={16} color="yellow"/>
+                    key={item.id}
+                    onPress={() => navigation.navigate("RecipeDetails", { recipe: item })}
+                    style={styles.item}
+                >
+                    <ImageBackground source={item.image} style={styles.image}>
+                        <View style={styles.moreInfo}>
+                            <Text style={styles.moreInfoText}>
+                                <Icon name="clock" size={16} color="white" />
+                            </Text>
+                            <Text style={styles.time}>{item.time}</Text>
                         </View>
-                    </View>
+                        <View style={styles.ratingInfo}>
+                            <View style={styles.ratingCircle}>
+                                <FontAwesome name="star" size={16} color="white" />
+                                <Text style={styles.rating}>{item.rating}</Text>
+                            </View>
+                        </View>
+                    </ImageBackground>
+                    <Text style={styles.itemTitle}>{item.title}</Text>
                 </Pressable>
-            )
-            }
-            columnWrapperStyle={{justifyContent: "space-between"}} numColumns={2}/>
-    </View>
-  );
+            ))}
+        </ScrollView></View>
+    );
 };
 
 const styles = StyleSheet.create({
+    container: {
+        paddingHorizontal: 16, // Add horizontal padding to create space between items
+        paddingBottom: 125 // Remove bottom padding to reduce space between title and bottom of container
+    },
+    titleText: {
+        fontSize: 20,
+        fontWeight: "bold",
+        marginBottom: 16,
+        marginLeft: 16
+    },
     item: {
-        backgroundColor: "grey",
+        backgroundColor: "white",
         shadowColor: "#000",
-        shadowOffset: { width: 0, height: 4},
+        shadowOffset: {
+            width: 0,
+            height: 4
+        },
         shadowOpacity: 0.1,
         shadowRadius: 7,
         borderRadius: 16,
         marginVertical: 16,
+        marginRight: 16, // Add right margin to create space between items
         alignItems: "center",
         paddingHorizontal: 8,
-        paddingVertical: 26
+        paddingVertical: 8
     },
     image: {
-        width: 130,
-        height: 130,
-        resizeMode:"center"
+        width: 200,
+        height: 200,
+        resizeMode: "cover",
+        borderRadius: 16,
+        overflow: "hidden"
     },
     moreInfo: {
-        flexDirection:"row",
-        marginTop: 8
+        position: "absolute",
+        top: 8,
+        left: 8,
+        flexDirection: "row",
+        alignItems: "center",
+        backgroundColor: colors.main,
+        borderRadius: 50,
+        padding: 4,
+        opacity: 0.8
+    },
+    moreInfoText: {
+        color: "white",
+        fontSize: 16,
+        marginRight: 4
+    },
+    time: {
+        color: "white",
+        fontSize: 12
     },
     ratingInfo: {
-        flexDirection:"row"
+        position: "absolute",
+        bottom: 8,
+        right: 8,
+        flexDirection: "row",
+        alignItems: "center",
+        padding: 4
+    },
+    ratingCircle: {
+        backgroundColor: colors.secondary,
+        borderRadius: 50,
+        flexDirection: "row",
+        alignItems: "center",
+        paddingHorizontal: 4,
+        paddingVertical: 2,
+        marginRight: 2
     },
     rating: {
-        marginRight: 4,
-
+        color: "white",
+        fontWeight: "bold",
+        marginLeft: 2
+    },
+    itemTitle: {
+        fontSize: 16,
+        marginTop: 8,
+        textAlign: "center"
     }
 });
 
