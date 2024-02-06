@@ -16,39 +16,43 @@ export const headerStyles = StyleSheet.create({
 
 export const searchStyles = StyleSheet.create({
     container: {
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "space-between",
-      paddingHorizontal: 5,
-      paddingVertical: 5,
-    },
-    inputContainer: {
+        flexDirection: "row",  // Make it a row
+        alignItems: "center",
+        justifyContent: "space-between",
+        paddingHorizontal: 5,
+        paddingVertical: 5,
+      },
+      inputContainer: {
         flex: 1,
         marginRight: 5,
-    },
-    input: {
+      },
+      input: {
         flex: 1,
         height: 40,
         borderWidth: 1,
         borderColor: "#000",
-        borderRadius: 5,
-        paddingHorizontal: 10,
-    }
+        paddingHorizontal: 5,
+        width: 200
+      },
+      searchIcon: {
+        position: "relative",
+        right: 35
+      }
 });
 
 export const filterStyles = StyleSheet.create({
-  categoryDropdownContainer: {
-    borderWidth: 1,
-    borderColor: "#CCCCCC",
-    borderRadius: 4,
-    paddingHorizontal: 8,
-  },
-    container: {
-        padding: 16
-    },
-    filterSection: {
-        marginBottom: 2
-    },
+    categoryDropdownContainer: {
+        borderWidth: 1,
+        borderColor: "#CCCCCC",
+        borderRadius: 4,
+        paddingHorizontal: 8,
+      },
+        container: {
+            padding: 16
+        },
+        filterSection: {
+            marginBottom: 2
+        },
     filterSectionTitleContainer: {
         flexDirection: "row",
         alignItems: "center"
@@ -59,7 +63,7 @@ export const filterStyles = StyleSheet.create({
         marginRight: 8
     },
     filterIcon: {
-        marginRight: 8
+        marginRight: 10
     },
     selectedFiltersContainer: {
         flexDirection: "row",
@@ -108,7 +112,7 @@ export const filterStyles = StyleSheet.create({
       backgroundColor: "white",
       padding: 20,
       borderRadius: 10,
-      width: "90%",
+      width: "70%",
       alignSelf: "center",
       maxHeight: "80%",
     },
@@ -133,7 +137,7 @@ export const filterStyles = StyleSheet.create({
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
-      marginBottom: 10,
+      marginBottom: 2,
       width: "100%",
     },
     ingredientDetails: {
@@ -141,15 +145,19 @@ export const filterStyles = StyleSheet.create({
       alignItems: "center",
       flex: 1,
     },
-  
-    ingredientImage: {
-      width: 24,
-      height: 24,
-      marginRight: 10,
-    },
     addButton: {
       backgroundColor: "lightgray",
       borderRadius: 8,
-      padding: 8,
     },
 });
+
+export const homepageStyles = StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',  // Adjust as needed
+      paddingHorizontal: 16,
+      paddingVertical: 8,
+      alignItems: 'center',
+    },
+  });
+  
