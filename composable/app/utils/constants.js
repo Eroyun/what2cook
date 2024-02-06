@@ -1,67 +1,67 @@
 export const ingredients = [
     {
-        id: 1,
-        name: "butter",
+        key: 1,
+        value: "butter",
         img: require('../../assets/ingredients/butter.jpg')
     }, {
-        id: 2,
-        name: "eggs",
+        key: 2,
+        value: "eggs",
         img: require('../../assets/ingredients/eggs.jpg')
     }, {
-        id: 3,
-        name: "flour",
+        key: 3,
+        value: "flour",
         img: require('../../assets/ingredients/flour.jpg')
     }, {
-        id: 4,
-        name: "oliveoil",
+        key: 4,
+        value: "oliveoil",
         img: require('../../assets/ingredients/oliveoil.jpg')
     }, {
-        id: 5,
-        name: "garlic",
+        key: 5,
+        value: "garlic",
         img: require('../../assets/ingredients/garlic.jpg')
     }, {
-        id: 6,
-        name: "onion",
+        key: 6,
+        value: "onion",
         img: require('../../assets/ingredients/onion.jpg')
     }, {
-        id: 7,
-        name: "pepper",
+        key: 7,
+        value: "pepper",
         img: require('../../assets/ingredients/pepper.jpg')
     }, {
-        id: 8,
-        name: "tomatoes",
+        key: 8,
+        value: "tomatoes",
         img: require('../../assets/ingredients/tomatoes.jpg')
     }, {
-        id: 9,
-        name: "rice",
+        key: 9,
+        value: "rice",
         img: require('../../assets/ingredients/rice.jpg')
     }, {
-        id: 10,
-        name: "chicken",
+        key: 10,
+        value: "chicken",
         img: require('../../assets/ingredients/chicken.jpg')
     }, {
-        id: 11,
-        name: "pork",
+        key: 11,
+        value: "pork",
         img: require('../../assets/ingredients/pork.jpg')
     }, {
-        id: 12,
-        name: "beef",
+        key: 12,
+        value: "beef",
         img: require('../../assets/ingredients/beef.jpg')
     }, {
-        id: 13,
-        name: "pasta",
+        key: 13,
+        value: "pasta",
         img: require('../../assets/ingredients/pasta.jpg')
     }, {
-        id: 14,
-        name: "cheese",
+        key: 14,
+        value: "cheese",
         img: require('../../assets/ingredients/cheese.jpg')
     }, {
-        id: 15,
-        name: "chocolate",
+        key: 15,
+        value: "chocolate",
         img: require('../../assets/ingredients/chocolate.jpg')
     }, {
-        id: 16,
-        name: "milk",
+        key: 16,
+        value: "milk",
         img: require('../../assets/ingredients/milk.jpg')
     }
 ];
@@ -113,26 +113,26 @@ export const recipes = [
 
 export const time = [
     {
-        id: 1,
-        name: "less 30min"
+        key: 1,
+        value: "less 30min"
     }, {
-        id: 2,
-        name: "between 30min and 1h"
+        key: 2,
+        value: "between 30min and 1h"
     }, {
-        id: 3,
-        name: "more 1h"
+        key: 3,
+        value: "more 1h"
     }
 ];
 
 export const calories = [
   {
-      id: 1,
+      key: 1,
       value: "less 1000"
   }, {
-      id: 2,
+      key: 2,
       value: "between 1000 and 3000"
   }, {
-      id: 3,
+      key: 3,
       value: "more 3000"
   }
 ];
@@ -145,3 +145,58 @@ export const colors = {
     accent: "#91A1BA",
     secondaryAccent: "#B0C0D0"
 }
+
+export const categories = [
+    {
+        value: 'Browse By Brand',
+        key: 'Browse By Brand'
+    }, {
+        value: 'Latest Recipes',
+        key: 'recipes_Latest Recipes'
+    }, {
+        value: 'Recipe Videos',
+        key: 'recipe-videos'
+    }, {
+        value: 'Company Classics',
+        key: 'recipes_companyclassics'
+    }, {
+        value: 'Appetizers',
+        key: 'recipes_appetizers'
+    }, {
+        value: 'Bagel Toppers',
+        key: 'recipes_bageltoppers'
+    }, {
+        value: 'Beverages',
+        key: 'recipes_beverages'
+    }, {
+        value: 'Breads',
+        key: 'recipes_breads'
+    }, {
+        value: 'Breakfast',
+        key: 'recipes_breakfast'
+    }, {
+        value: 'Desserts',
+        key: 'recipes_desserts'
+    }, {
+        value: 'Dessert Waffles',
+        key: 'recipes_dessertwaffles'
+    }, {
+        value: 'Grilled Cheese',
+        key: 'recipes_grilledcheese'
+    }, {
+        value: 'Main Courses',
+        key: 'recipes_main-courses'
+    }, {
+        value: 'Salads',
+        key: 'recipes_salads'
+    }, {
+        value: 'Side Dishes',
+        key: 'recipes_side-dishes'
+    }, {
+        value: 'Soups',
+        key: 'recipes_soups'
+    }, {
+        value: 'Toast Toppers',
+        key: 'recipes_toasttoppers'
+    }
+]

@@ -13,7 +13,7 @@ const RecipesSearch = ({ onSearch }: SearchRecipesProps) => {
     };
 
     return (
-        <View style={searchStyles.container}>
+        <View >
             <Input
                 containerStyle={searchStyles.inputContainer}
                 inputContainerStyle={searchStyles.input}
@@ -21,7 +21,7 @@ const RecipesSearch = ({ onSearch }: SearchRecipesProps) => {
                 value={searchText}
                 onChangeText={setSearchText}
                 rightIcon={<TouchableOpacity onPress={handleSearch}>
-                <FontAwesome name="search" size={24} color="black" />
+                <FontAwesome style={searchStyles.searchIcon} name="search" size={16} color="black" />
             </TouchableOpacity>}
             />
             
