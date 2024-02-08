@@ -1,68 +1,52 @@
 export const ingredients = [
     {
         key: 1,
-        value: "butter",
-        img: require('../../assets/ingredients/butter.jpg')
+        value: "butter"
     }, {
         key: 2,
-        value: "eggs",
-        img: require('../../assets/ingredients/eggs.jpg')
+        value: "eggs"
     }, {
         key: 3,
-        value: "flour",
-        img: require('../../assets/ingredients/flour.jpg')
+        value: "flour"
     }, {
         key: 4,
-        value: "oliveoil",
-        img: require('../../assets/ingredients/oliveoil.jpg')
+        value: "oliveoil"
     }, {
         key: 5,
-        value: "garlic",
-        img: require('../../assets/ingredients/garlic.jpg')
+        value: "garlic"
     }, {
         key: 6,
-        value: "onion",
-        img: require('../../assets/ingredients/onion.jpg')
+        value: "onion"
     }, {
         key: 7,
-        value: "pepper",
-        img: require('../../assets/ingredients/pepper.jpg')
+        value: "pepper"
     }, {
         key: 8,
-        value: "tomatoes",
-        img: require('../../assets/ingredients/tomatoes.jpg')
+        value: "tomatoes"
     }, {
         key: 9,
-        value: "rice",
-        img: require('../../assets/ingredients/rice.jpg')
+        value: "rice"
     }, {
         key: 10,
-        value: "chicken",
-        img: require('../../assets/ingredients/chicken.jpg')
+        value: "chicken"
     }, {
         key: 11,
-        value: "pork",
-        img: require('../../assets/ingredients/pork.jpg')
+        value: "pork"
     }, {
         key: 12,
-        value: "beef",
-        img: require('../../assets/ingredients/beef.jpg')
+        value: "beef"
     }, {
         key: 13,
-        value: "pasta",
-        img: require('../../assets/ingredients/pasta.jpg')
+        value: "pasta"
     }, {
         key: 14,
-        value: "cheese",
-        img: require('../../assets/ingredients/cheese.jpg')
+        value: "cheese"
     }, {
         key: 15,
-        value: "chocolate",
-        img: require('../../assets/ingredients/chocolate.jpg')
+        value: "chocolate"
     }, {
         key: 16,
-        value: "milk",
-        img: require('../../assets/ingredients/milk.jpg')
+        value: "milk"
     }
 ];
 export const recipes = [
@@ -138,65 +122,35 @@ export const calories = [
 ];
 
 export const colors = {
-    secondary: "#F3D250",
-    main: "#55B9EE",
-    background: "#ECECEC",
+    secondary: "#F3BC48",
+    main: "#D54022",
+    background: "#F6F1E8",
     secondaryBackground: "#F6FDFF",
-    accent: "#91A1BA",
+    accent: "#131D28",
     secondaryAccent: "#B0C0D0"
 }
 
 export const categories = [
     {
-        value: 'Browse By Brand',
-        key: 'Browse By Brand'
+        value: 'Breakfast',
+        key: 'breakfast',
+        image: require('../../assets/categories/breakfast.png')
     }, {
-        value: 'Latest Recipes',
-        key: 'recipes_Latest Recipes'
+        value: 'Lunch',
+        key: 'lunch_snacks',
+        image: require('../../assets/categories/lunch.png')
     }, {
-        value: 'Recipe Videos',
-        key: 'recipe-videos'
-    }, {
-        value: 'Company Classics',
-        key: 'recipes_companyclassics'
-    }, {
-        value: 'Appetizers',
-        key: 'recipes_appetizers'
-    }, {
-        value: 'Bagel Toppers',
-        key: 'recipes_bageltoppers'
+        value: 'Lunch',
+        key: 'one-dish-meal',
+        image: require('../../assets/categories/dinner.png')
+
     }, {
         value: 'Beverages',
-        key: 'recipes_beverages'
+        key: 'Beverages',
+        image: require('../../assets/categories/fruit-juice.png')
     }, {
-        value: 'Breads',
-        key: 'recipes_breads'
-    }, {
-        value: 'Breakfast',
-        key: 'recipes_breakfast'
-    }, {
-        value: 'Desserts',
-        key: 'recipes_desserts'
-    }, {
-        value: 'Dessert Waffles',
-        key: 'recipes_dessertwaffles'
-    }, {
-        value: 'Grilled Cheese',
-        key: 'recipes_grilledcheese'
-    }, {
-        value: 'Main Courses',
-        key: 'recipes_main-courses'
-    }, {
-        value: 'Salads',
-        key: 'recipes_salads'
-    }, {
-        value: 'Side Dishes',
-        key: 'recipes_side-dishes'
-    }, {
-        value: 'Soups',
-        key: 'recipes_soups'
-    }, {
-        value: 'Toast Toppers',
-        key: 'recipes_toasttoppers'
+        value: 'Dessert',
+        key: 'dessert',
+        image: require('../../assets/categories/pie.png')
     }
 ]

@@ -1,36 +1,55 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text
-} from "react-native";
-import {  categories} from "../utils/constants";
-import { filterStyles } from "../theme/components/theme";
-import { SelectList } from "react-native-dropdown-select-list";
+import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { categories } from "../utils/constants";
+import { categoriesStyles } from "../theme/components/theme";
+import  Ionicons  from "@expo/vector-icons/FontAwesome";
 
 const RecipesCategories: React.FC = () => {
-    const [selectedCategory, setSelectedCategory] = useState("recipes_bageltoppers");
-  console.log(selectedCategory)
-  
-  
+  const [selectedCategory, setSelectedCategory] = useState("breakfast");
+  const [selectedArrow, setSelectedArrow] = useState(false);
+
+  const handleCategoryPress = (category) => {
+    setSelectedCategory(category);
+    setSelectedArrow(false); // Add this line
+  };
+
   return (
-    <View style={filterStyles.container}>
-      <View style={filterStyles.filterSection}>
-        
+    <View style={categoriesStyles.container}>
+      <View style={categoriesStyles.filterCategories}>
         <View>
           <Text>Categories</Text>
-          <SelectList
-            setSelected={(val) => setSelectedCategory(val)}
-            fontFamily="lato"
-            data={categories}
-            search={false}
-            boxStyles={{
-              borderRadius: 0,
-            }}
-            defaultOption={{
-              key: "1",
-              value: "Jammu & Kashmir",
-            }}
-          />
+          <View style={
+                    categoriesStyles.iconContainer}>
+            {categories.map((category) => (
+              <View
+                key={category.key}
+                style={[
+                  categoriesStyles.icon,
+                  selectedCategory === category.key && categoriesStyles.selectedIcon,
+                ]}
+              >
+                <Image source={category.image} style={categoriesStyles.categoryImage} />
+                <Text style={[
+                    categoriesStyles.text,
+                    selectedCategory === category.key && categoriesStyles.selectedText,
+              
+                   ]}>{category.value}</Text>
+                <TouchableOpacity
+                  onPress={() => handleCategoryPress(category.key)}
+                  style={[
+                    categoriesStyles.arrowContainer,
+                    selectedCategory === category.key && categoriesStyles.selectedArrowContainer,
+              
+                   ]}
+                >
+                  <Ionicons name="arrow-right" style={[
+                  categoriesStyles.arrowImage,
+                  selectedCategory === category.key && categoriesStyles.selectedArrow,
+                ]} />
+               </TouchableOpacity>
+              </View>
+            ))}
+          </View>
         </View>
       </View>
     </View>

@@ -3,14 +3,11 @@ import {colors} from "../../utils/constants";
 
 export const headerStyles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
+        fontWeight: "600",
         margin: 24
     },
     headerText: {
-        fontSize: 32,
-        textAlign: "center"
+        fontSize: 32
     }
 });
 
@@ -50,8 +47,15 @@ export const filterStyles = StyleSheet.create({
         container: {
             padding: 16
         },
-        filterSection: {
+        filterCategories:{
             marginBottom: 2
+        },
+        filterSection: {
+            alignItems:'center',
+            marginBottom: 2, 
+            padding: 7,
+            backgroundColor: colors.accent,
+             borderRadius: 999 
         },
     filterSectionTitleContainer: {
         flexDirection: "row",
@@ -61,9 +65,6 @@ export const filterStyles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold",
         marginRight: 8
-    },
-    filterIcon: {
-        marginRight: 10
     },
     selectedFiltersContainer: {
         flexDirection: "row",
@@ -161,3 +162,84 @@ export const homepageStyles = StyleSheet.create({
     },
   });
   
+export  const categoriesStyles = StyleSheet.create({
+  scrollViewContent: {
+    paddingHorizontal: 10, // Add horizontal padding to create space between categories
+  },
+    categoryImage: {
+        width: 50,
+        height: 50
+      },
+      text:{
+        color: colors.accent
+      },
+      selectedText:{
+        color: 'white'
+      },
+      arrowContainer: {
+        position: "relative",
+        left: "50%",
+        marginLeft: -15,
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        top:2,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: colors.accent
+      },
+      selectedArrowContainer: {
+        position: "relative",
+        left: "50%",
+        marginLeft: -15,
+        top:2,
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "white"
+      },
+      arrowImage: {
+        width: 20,
+        alignItems: 'center',
+        color: 'white',
+        padding: 5
+      },
+      selectedArrow: {
+        width: 20,
+        alignItems: 'center',
+        color: colors.accent,
+        padding: 5
+      },
+    container: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center"
+    },
+    filterCategories: {
+      width: "100%",
+      left: 20,
+      flexDirection: "row",
+      justifyContent: "space-between",
+    },
+    title: {
+      fontSize: 18,
+      fontWeight: "bold",
+      marginBottom: 10,
+    },
+    iconContainer: {
+      flexDirection: "row",
+      paddingHorizontal: 16, // Add horizontal padding to create space between items
+        paddingBottom: 125
+    },
+    icon: {
+      padding: 10,
+      borderRadius: 5,
+        borderWidth: 1,
+        borderColor: colors.accent
+    },
+    selectedIcon: {
+      backgroundColor: colors.accent,
+    },
+  });
