@@ -6,7 +6,8 @@ import os
 
 encoder = SentenceTransformer("all-MiniLM-L6-v2")
 
-dataset = load_dataset("../data/collection", split="train", streaming=True)
+dataset = load_dataset('csv', data_files='data/collection/modified_recipes.csv',
+                       split="train", streaming=True)
 
 client = QdrantClient(
     url=os.environ["QDRANT_URL"],
