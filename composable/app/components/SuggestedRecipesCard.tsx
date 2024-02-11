@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { colors, recipes } from "../utils/constants";
+import { COLORS, recipes } from "../utils/constants";
 import Icon from 'react-native-vector-icons/Foundation';
 
 const SuggestedRecipesCard: React.FC = () => {
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         left: 8,
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: colors.main,
+        backgroundColor: COLORS.main,
         borderRadius: 50,
         padding: 4,
         opacity: 0.8
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         padding: 4
     },
     ratingCircle: {
-        backgroundColor: colors.secondary,
+        backgroundColor: COLORS.secondary,
         borderRadius: 50,
         flexDirection: "row",
         alignItems: "center",

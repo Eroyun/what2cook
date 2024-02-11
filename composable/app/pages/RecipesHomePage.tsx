@@ -3,10 +3,12 @@ import React from "react";
 import RecipesSearch from "../components/RecipesSearch";
 import Filter from "../components/RecipesFilter";
 import SuggestedRecipesCard from "../components/SuggestedRecipesCard";
-import {colors} from "../utils/constants";
+
 import {homepageStyles} from "../theme/components/theme";
 import RecipesCategories from "../components/RecipesCategories";
-import RecipesHomePageHeader from "../components/RecipesHomePageHeader"
+import Animated from 'react-native-reanimated'
+import RecipesPageFooter from "../components/RecipesPageFooter";
+
 const RecipesHomePage = () => {
 
     const handleSearch = (searchText : string) => {
@@ -16,19 +18,41 @@ const RecipesHomePage = () => {
     return (
         <SafeAreaView
             style={{
-                flex:1,
+            flex: 1,
             backgroundColor: "#fffff"
         }}>
-            <View>
-            <RecipesHomePageHeader headerText={"What2Cook"}/>
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 8, paddingBottom: 2 }}>
-            <View style={{ flexDirection: 'row', flex: 1, alignItems: 'center', padding: 7}}>
-                {/* <Filter /> */}
-                <RecipesSearch onSearch={handleSearch} />
-            </View></View>
-            </View>
-            <RecipesCategories/>
-            <SuggestedRecipesCard/>
+            <Animated.View
+                style={{
+                flex: 1
+            }}>
+
+                <View>
+
+                    <View
+                        style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        paddingHorizontal: 8,
+                        paddingBottom: 2
+                    }}>
+                        <View
+                            style={{
+                            flexDirection: 'row',
+                            flex: 1,
+                            alignItems: 'center',
+                            padding: 7
+                        }}>
+                            {/* <Filter /> */}
+                            <RecipesSearch onSearch={handleSearch}/>
+                        </View>
+                    </View>
+                </View>
+                <RecipesCategories/>
+                <SuggestedRecipesCard/>
+                <RecipesPageFooter/>
+                
+            </Animated.View>
         </SafeAreaView>
     )
 }
