@@ -1,7 +1,7 @@
 {
   "name": "whattoeat",
   "version": "1.0.0",
-  "main": "app/navigation/AppNavigator.js",
+  "main": "App.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
