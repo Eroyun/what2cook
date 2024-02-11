@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {colors} from "../../utils/constants";
+import {COLORS} from "../../utils/constants";
 
 export const headerStyles = StyleSheet.create({
     container: {
@@ -54,7 +54,7 @@ export const filterStyles = StyleSheet.create({
             alignItems:'center',
             marginBottom: 2, 
             padding: 7,
-            backgroundColor: colors.accent,
+            backgroundColor: COLORS.accent,
              borderRadius: 999 
         },
     filterSectionTitleContainer: {
@@ -87,7 +87,7 @@ export const filterStyles = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 16,
         borderRadius: 8,
-        backgroundColor: colors.secondaryAccent,
+        backgroundColor: COLORS.secondaryAccent,
         marginRight: 8,
         marginBottom: 8,
         flexDirection: "row",
@@ -164,14 +164,14 @@ export const homepageStyles = StyleSheet.create({
   
 export  const categoriesStyles = StyleSheet.create({
   scrollViewContent: {
-    paddingHorizontal: 10, // Add horizontal padding to create space between categories
+    paddingHorizontal: 10, // Adjust padding if needed
   },
     categoryImage: {
         width: 50,
         height: 50
       },
       text:{
-        color: colors.accent
+        color: COLORS.accent
       },
       selectedText:{
         color: 'white'
@@ -186,7 +186,7 @@ export  const categoriesStyles = StyleSheet.create({
         top:2,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: colors.accent
+        backgroundColor: COLORS.accent
       },
       selectedArrowContainer: {
         position: "relative",
@@ -209,7 +209,7 @@ export  const categoriesStyles = StyleSheet.create({
       selectedArrow: {
         width: 20,
         alignItems: 'center',
-        color: colors.accent,
+        color: COLORS.accent,
         padding: 5
       },
     container: {
@@ -222,24 +222,26 @@ export  const categoriesStyles = StyleSheet.create({
       left: 20,
       flexDirection: "row",
       justifyContent: "space-between",
+      flexWrap: "wrap", // Add flexWrap
+    },
+  
+    iconContainer: {
+      flexDirection: "row",
+      paddingHorizontal: 16, // Adjust padding if needed
     },
     title: {
       fontSize: 18,
       fontWeight: "bold",
       marginBottom: 10,
     },
-    iconContainer: {
-      flexDirection: "row",
-      paddingHorizontal: 16, // Add horizontal padding to create space between items
-        paddingBottom: 125
-    },
     icon: {
-      padding: 10,
+      padding: 5,
       borderRadius: 5,
         borderWidth: 1,
-        borderColor: colors.accent
+        borderColor: COLORS.accent,
+        marginHorizontal:5
     },
     selectedIcon: {
-      backgroundColor: colors.accent,
+      backgroundColor: COLORS.accent,
     },
   });

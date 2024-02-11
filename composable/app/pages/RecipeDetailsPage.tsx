@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Icon from 'react-native-vector-icons/Foundation';
 import React from "react";
-import {colors} from "../utils/constants";
+import {COLORS} from "../utils/constants";
 import {FontAwesome} from "@expo/vector-icons";
 import {StackNavigationProp} from "@react-navigation/stack";
 import {RootStackParamList, Recipe} from "../utils/app_types";
@@ -60,7 +60,7 @@ const RecipeDetailsPage : React.FC < RecipeDetailsPageProps > = ({navigation, ro
                     }}>
                         <View
                             style={{
-                            backgroundColor: colors.accent,
+                            backgroundColor: COLORS.accent,
                             paddingHorizontal: 16,
                             paddingVertical: 16,
                             borderRadius: 8,
@@ -77,7 +77,7 @@ const RecipeDetailsPage : React.FC < RecipeDetailsPageProps > = ({navigation, ro
                         </View>
                         <View
                             style={{
-                            backgroundColor: colors.accent,
+                            backgroundColor: COLORS.accent,
                             paddingHorizontal: 16,
                             paddingVertical: 16,
                             borderRadius: 8,
@@ -102,7 +102,7 @@ const RecipeDetailsPage : React.FC < RecipeDetailsPageProps > = ({navigation, ro
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.accent
+        backgroundColor: COLORS.accent
     },
     backgroundImage: {
         flex: 1,

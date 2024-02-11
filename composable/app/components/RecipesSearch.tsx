@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, TextInput, Text, StyleSheet, ViewStyle } from "react-native";
 import { Search, MapPin, Sliders } from "react-feather";
-import { colors } from "../utils/constants";
+import { COLORS } from "../utils/constants";
 import { SearchRecipesProps } from '../utils/app_types'
 import { Icon } from "react-native-elements";
 const RecipesSearch = ({ onSearch }: SearchRecipesProps) => {
