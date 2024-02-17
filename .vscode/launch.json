@@ -5,12 +5,7 @@
       "type": "debugpy",
       "request": "attach",
       "connect": { "host": "localhost", "port": 5678 },
-      "pathMappings": [
-        {
-          "localRoot": "${workspaceFolder}/flask_search_and_filter",
-          "remoteRoot": "."
-        }
-      ]
+      "pathMappings": [{ "localRoot": "${workspaceFolder}", "remoteRoot": "." }]
     }
   ]
 }
