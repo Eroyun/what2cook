@@ -1,2 +1,5 @@
 .env
-llama-2-7b-chat-hf
+data
+flaskenv
+qdrantenv
+__pycache__
