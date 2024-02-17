@@ -16,7 +16,7 @@
    qdrantenv\Scripts\activate
    ```
 
-   On Unix or MacOS or Git Bash:
+   On Windows (Git Bash):
 
    ```bash
    source qdrantenv/Scripts/activate
