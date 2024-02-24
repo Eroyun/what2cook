@@ -13,19 +13,19 @@
 1. **Create a virtual environment:**
 
    ```bash
-   python -m venv flaskenv
+   python -m venv fastenv
    ```
 
    If you have multiple Python versions, specify Python 3.9 explicitly:
 
    ```bash
-   py -3.9 -m venv flaskenv
+   py -3.9 -m venv fastenv
    ```
 
 2. **Activate the virtual environment:**
 
    ```bash
-   source flaskenv/Scripts/activate
+   source fastenv/Scripts/activate
    ```
 
 3. **Install dependencies:**

@@ -8,11 +8,5 @@ services:
       - 5000:5000
       - 5678:5678
     environment:
-      FLASK_APP: run.py
-      FLASK_DEBUG: 0
       QDRANT_URL: ${QDRANT_URL}
       QDRANT_KEY: ${QDRANT_KEY}
-    develop:
-      watch:
-        - action: rebuild
-          path: web

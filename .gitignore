@@ -1,6 +1,7 @@
 .env
 .venv
 flaskenv
+fastenv
 qdrantenv
 data
 __pycache__
