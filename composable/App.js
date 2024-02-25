@@ -8,6 +8,8 @@ import FavouritePage from "./app/pages/FavouritePage"
 import AccountPage from "./app/pages/AccountPage"
 import { registerRootComponent } from "expo";
 
+import CustomDrawer from "./app/navigation/CustomDrawer";
+
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
@@ -18,10 +20,11 @@ const AppNavigator = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="HomePage" component={RecipesHomePage} />
+        <Stack.Screen name="Home" component={CustomDrawer} />
+        {/* <Stack.Screen name="HomePage" component={RecipesHomePage} />
         <Stack.Screen name="RecipeDetails" component={RecipeDetailsPage} />
         <Stack.Screen name="Favourite" component={FavouritePage} />
-        <Stack.Screen name="Account" component={AccountPage} />
+        <Stack.Screen name="Account" component={AccountPage} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

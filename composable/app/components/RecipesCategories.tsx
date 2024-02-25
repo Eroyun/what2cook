@@ -6,11 +6,9 @@ import Ionicons from "@expo/vector-icons/FontAwesome";
 
 const RecipesCategories: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("breakfast");
-  const [selectedArrow, setSelectedArrow] = useState(false);
 
   const handleCategoryPress = (category) => {
     setSelectedCategory(category);
-    setSelectedArrow(false);
   };
 
   return (
@@ -24,37 +22,23 @@ const RecipesCategories: React.FC = () => {
             contentContainerStyle={categoriesStyles.scrollViewContent}
           >
             {categories.map((category) => (
-              <View
-                key={category.key}
-                style={[
-                  categoriesStyles.icon,
-                  selectedCategory === category.key && categoriesStyles.selectedIcon,
-                ]}
-              >
-                <Image source={category.image} style={categoriesStyles.categoryImage} />
-                <Text
-                  style={[
-                    categoriesStyles.text,
-                    selectedCategory === category.key && categoriesStyles.selectedText,
-                  ]}
-                >
-                  {category.value}
-                </Text>
+              // Assign the key prop to the outer View element
+              <View key={category.key} style={categoriesStyles.categoryItem}>
                 <TouchableOpacity
                   onPress={() => handleCategoryPress(category.key)}
                   style={[
-                    categoriesStyles.arrowContainer,
-                    selectedCategory === category.key && categoriesStyles.selectedArrowContainer,
+                    categoriesStyles.icon,
+                    selectedCategory === category.key && categoriesStyles.selectedIcon,
                   ]}
                 >
-                  <Ionicons
-                    name="arrow-right"
-                    style={[
-                      categoriesStyles.arrowImage,
-                      selectedCategory === category.key && categoriesStyles.selectedArrow,
-                    ]}
-                  />
+                  <Image source={category.image} style={[
+                    categoriesStyles.categoryImage,
+                    selectedCategory === category.key && categoriesStyles.selectedCategoryImage,
+                  ]} />
                 </TouchableOpacity>
+                <Text style={categoriesStyles.text}>
+                  {category.value}
+                </Text>
               </View>
             ))}
           </ScrollView>
