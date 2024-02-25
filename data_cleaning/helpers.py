@@ -19,6 +19,6 @@ def parse_duration(duration_str):
 def replace_c_with_brackets(data):
     if data == 'character(0)':
         return '[]'
-    pattern = r'(?s)c\((.*?)\)'
+    pattern = r'(?s)^c\((.*?)\)$'
     result = re.sub(pattern, r'[\1]', data)
     return result

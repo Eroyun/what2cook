@@ -14,7 +14,8 @@ client = QdrantClient(
     api_key=os.environ["QDRANT_KEY"],
 )
 
-client.create_collection(
+# Warning: This will delete the collection if it already exists
+client.recreate_collection(
     collection_name="recipes",
     vectors_config=models.VectorParams(
         # Vector size is defined by used model
