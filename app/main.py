@@ -80,23 +80,26 @@ async def filter(totalTime: Optional[int] = Body(None), ingredient: Optional[str
 @app.get('/filter-category')
 async def filterCategory(category: str):
     categories = ['Breakfast', 'Lunch/Snack', 'Beverages', 'Dessert']
+    gte = 100.0
 
-    if category not in categories:
-        hits = qdrant.scroll(
-            collection_name="recipes",
-            scroll_filter=models.Filter(
+    while gte >= 0:
+        if category not in categories:
+            scroll_filter = models.Filter(
                 must_not=[
                     models.FieldCondition(
                         key="RecipeCategory",
                         match=models.MatchAny(any=categories),
                     )
                 ],
-            ),
-        )[0]
-    else:
-        hits = qdrant.scroll(
-            collection_name="recipes",
-            scroll_filter=models.Filter(
+                must=[
+                    models.FieldCondition(
+                        key="ReviewCount",
+                        range=models.Range(gte=gte)
+                    )
+                ]
+            )
+        else:
+            scroll_filter = models.Filter(
                 must=[
                     models.FieldCondition(
                         key="RecipeCategory",
@@ -104,10 +107,20 @@ async def filterCategory(category: str):
                     ),
                     models.FieldCondition(
                         key="ReviewCount",
-                         range=models.Range(gte=100.0)
+                        range=models.Range(gte=gte)
                     )
                 ]
-            ),
+            )
+
+        hits = qdrant.scroll(
+            collection_name="recipes",
+            scroll_filter=scroll_filter,
         )[0]
+
+        if len(hits) >= 10 or gte == 0:
+            break
+
+        gte -= 25.0
+
     return [hit.payload for hit in hits]
 
