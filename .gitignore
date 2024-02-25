@@ -1,5 +1,5 @@
 .env
+.venv
 qdrantenv
-flaskenv
-__pycache__
 data
+__pycache__
