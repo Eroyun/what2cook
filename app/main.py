@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Body
+from fastapi.middleware.cors import CORSMiddleware
 from qdrant_client import models, QdrantClient
 from sentence_transformers import SentenceTransformer
 from app.helpers.filter_helpers import get_time_range
@@ -6,6 +7,18 @@ from typing import Optional
 import os
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:8081"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 qdrant = QdrantClient(
     url=os.environ["QDRANT_URL"],
@@ -28,9 +41,8 @@ async def search(query: Optional[str] = Body(None), limit: Optional[int] = Body(
             )
         ),
     )
-    results = [{'payload': hit.payload, 'score': hit.score}
+    return [{'payload': hit.payload, 'score': hit.score}
                for hit in hits]
-    return results
 
 
 @app.post('/filter')
@@ -63,5 +75,35 @@ async def filter(totalTime: Optional[int] = Body(None), ingredient: Optional[str
             must=must
         ),
     )[0]
-    results = [hit.payload for hit in hits]
-    return results
+    return [hit.payload for hit in hits]
+
+@app.get('/filter-category')
+async def filterCategory(category: str):
+    categories = ['Breakfast', 'Lunch/Snack', 'Beverages', 'Dessert']
+
+    if category not in categories:
+        hits = qdrant.scroll(
+            collection_name="recipes",
+            scroll_filter=models.Filter(
+                must_not=[
+                    models.FieldCondition(
+                        key="color",
+                        match=models.MatchAny(any=categories),
+                    )
+                ],
+            ),
+        )[0]
+    else:
+        hits = qdrant.scroll(
+            collection_name="recipes",
+            scroll_filter=models.Filter(
+                must=[
+                    models.FieldCondition(
+                        key="RecipeCategory",
+                        match=models.MatchText(text=category)
+                    )
+                ]
+            ),
+        )[0]
+    return [hit.payload for hit in hits]
+
