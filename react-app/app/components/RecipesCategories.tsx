@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-  StyleSheet,
-} from "react-native";
+import React, { useState, useEffect} from "react";
+import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { categories } from "../utils/constants";
 import { categoriesStyles } from "../theme/components/theme";
-import Ionicons from "@expo/vector-icons/FontAwesome";
+
 import Api from "../api/qdrant";
 import { Recipe } from "../utils/app_types";
 
@@ -50,29 +43,23 @@ const RecipesCategories = ({ setCategoryData }: RecipesCategoriesProps) => {
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={categoriesStyles.scrollViewContent}
           >
             {categories.map((category) => (
-              // Assign the key prop to the outer View element
               <View key={category.key} style={categoriesStyles.categoryItem}>
                 <TouchableOpacity
                   onPress={() => handleCategoryPress(category)}
                   style={[
                     categoriesStyles.icon,
-                    selectedCategory === category.key &&
-                      categoriesStyles.selectedIcon,
+                    selectedCategory === category.key && categoriesStyles.selectedIcon,
                   ]}
                 >
-                  <Image
-                    source={category.image}
-                    style={[
-                      categoriesStyles.categoryImage,
-                      selectedCategory === category.key &&
-                        categoriesStyles.selectedCategoryImage,
-                    ]}
-                  />
+                  <Image source={category.image} style={[
+                    categoriesStyles.categoryImage
+                  ]} />
                 </TouchableOpacity>
-                <Text style={categoriesStyles.text}>{category.value}</Text>
+                <Text style={categoriesStyles.text}>
+                  {category.value}
+                </Text>
               </View>
             ))}
           </ScrollView>
