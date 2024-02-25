@@ -35,5 +35,6 @@ README.md
 
 ### Project specific
 **/flaskenv
+**/fastenv
 **/qdrantenv
 **/data

@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Body
 from qdrant_client import models, QdrantClient
 from sentence_transformers import SentenceTransformer
-from web.helpers.filter_helpers import get_time_range
+from app.helpers.filter_helpers import get_time_range
 from typing import Optional
 import os
 
@@ -14,7 +14,7 @@ qdrant = QdrantClient(
 
 
 @app.post('/search')
-def search(query: Optional[str] = Body(None), limit: Optional[int] = Body(10)):
+async def search(query: Optional[str] = Body(None), limit: Optional[int] = Body(10)):
     encoder = SentenceTransformer("all-MiniLM-L6-v2")
     hits = qdrant.search(
         collection_name="recipes",
@@ -34,10 +34,10 @@ def search(query: Optional[str] = Body(None), limit: Optional[int] = Body(10)):
 
 
 @app.post('/filter')
-def filter(totalTime: Optional[str] = Body(None)):
+async def filter(totalTime: Optional[int] = Body(None), ingredient: Optional[str] = Body(None)):
 
     must = []
-
+    test = 3
     if totalTime is not None:
         gt, gte, lt, lte = get_time_range(totalTime)
 
@@ -49,6 +49,12 @@ def filter(totalTime: Optional[str] = Body(None)):
                 lt=lt,
                 lte=lte
             )
+        ))
+
+    if ingredient is not None:
+        must.append(models.FieldCondition(
+            key="RecipeIngredientParts",
+            match=models.MatchText(text=ingredient)
         ))
 
     hits = qdrant.scroll(

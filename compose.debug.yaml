@@ -1,19 +1,22 @@
+version: "3.9"
+
 services:
   web:
-    build:
-      context: .
+    build: .
+    working_dir: /code/app
     env_file:
       - .env
     ports:
       - 5000:5000
       - 5678:5678
     environment:
+      PYTHONPATH: /code
+      DEBUG: 1
       QDRANT_URL: ${QDRANT_URL}
       QDRANT_KEY: ${QDRANT_KEY}
-    develop:
-      watch:
-        - action: rebuild
-          path: web
+    volumes:
+      - ./app:/code/app
+    restart: on-failure
     command:
       [
         "python",
@@ -24,10 +27,10 @@ services:
         "0.0.0.0:5678",
         "-m",
         "uvicorn",
-        "web.main:app",
+        "main:app",
         "--host",
         "0.0.0.0",
         "--port",
         "5000",
-        --reload,
+        "--reload",
       ]

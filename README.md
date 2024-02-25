@@ -5,34 +5,7 @@
 ### **Prerequisites:**
 
 - Python 3.9 (or later)
-- Docker
-- Docker Compose
-
-### **Installation:**
-
-1. **Create a virtual environment:**
-
-   ```bash
-   python -m venv fastenv
-   ```
-
-   If you have multiple Python versions, specify Python 3.9 explicitly:
-
-   ```bash
-   py -3.9 -m venv fastenv
-   ```
-
-2. **Activate the virtual environment:**
-
-   ```bash
-   source fastenv/Scripts/activate
-   ```
-
-3. **Install dependencies:**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
+- Docker (Install Docker Desktop)
 
 ### **Building and running the application:**
 
@@ -46,17 +19,13 @@ If you made changes in the code:
 docker compose up --build
 ```
 
-Watch your changes:
-
-```bash
-docker compose watch
-```
-
 Debug your code:
 
 ```bash
 docker compose -f compose.debug.yaml up
 ```
+
+**Note**: In some cases, Docker may hang during the attaching process. To resolve this, initiate your debugger in Visual Studio Code.
 
 ### **Updating Dependencies:**
 
