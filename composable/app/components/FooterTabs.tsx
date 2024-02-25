@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Pressable, Image, View, Text } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import { COLORS, SIZES, FONTS } from '../utils/constants';
+import { COLORS, SIZES } from '../utils/constants';
 
 const FooterTabs = () => {
   const navigation = useNavigation();
