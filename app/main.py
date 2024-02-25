@@ -37,7 +37,7 @@ async def search(query: Optional[str] = Body(None), limit: Optional[int] = Body(
 async def filter(totalTime: Optional[int] = Body(None), ingredient: Optional[str] = Body(None)):
 
     must = []
-    test = 3
+
     if totalTime is not None:
         gt, gte, lt, lte = get_time_range(totalTime)
 

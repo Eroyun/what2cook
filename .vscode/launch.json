@@ -6,7 +6,7 @@
       "request": "attach",
       "connect": { "host": "localhost", "port": 5678 },
       "pathMappings": [
-        { "localRoot": "${workspaceFolder}/app", "remoteRoot": "./code" }
+        { "localRoot": "${workspaceFolder}/app", "remoteRoot": "/code/app" }
       ]
     }
   ]
