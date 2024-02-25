@@ -13,7 +13,7 @@
 docker compose up
 ```
 
-If you made changes in the code:
+If you made changes in the code that requires rebuild:
 
 ```bash
 docker compose up --build
@@ -25,21 +25,7 @@ Debug your code:
 docker compose -f compose.debug.yaml up
 ```
 
-**Note**: In some cases, Docker may hang during the attaching process. To resolve this, initiate your debugger in Visual Studio Code.
-
-### **Updating Dependencies:**
-
-1. **Install any new dependencies:**
-
-```bash
-pip install <new-dependency>
-```
-
-2. **Update the requirements file:**
-
-   ```bash
-   pip freeze > requirements.txt
-   ```
+**Note**: Docker may hang during the attaching process. To resolve this, initiate your debugger in Visual Studio Code.
 
 ### **Pushing to an Azure Container Registry:**
 
