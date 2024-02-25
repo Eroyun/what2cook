@@ -1,48 +1,56 @@
-import React, { useState } from "react";
-import { View, TextInput, StyleSheet, TouchableOpacity, ViewStyle } from "react-native";
-import { Icon } from "react-native-elements";
-import { SearchRecipesProps } from '../utils/app_types'
+import React, {useState} from "react";
+import {
+    View,
+    TextInput,
+    StyleSheet,
+    TouchableOpacity,
+    ViewStyle
+} from "react-native";
+import {Icon} from "react-native-elements";
+import {SearchRecipesProps} from '../utils/app_types'
 
-const RecipesSearch = ({ onSearch }: SearchRecipesProps) => {
-  const [searchText, setSearchText] = useState("");
+const RecipesSearch = ({onSearch} : SearchRecipesProps) => {
+    const [searchText,
+        setSearchText] = useState("");
 
-  const handleSearch = () => {
-    onSearch(searchText);
-  };
+    const handleSearch = () => {
+        onSearch(searchText);
+    };
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.searchContainer}>
-        <TouchableOpacity onPress={handleSearch} style={styles.iconContainer}>
-          <Icon name="search" size={24} color="#000" />
-        </TouchableOpacity>
-        <TextInput
-          placeholder="Search recipes"
-          style={styles.input}
-          keyboardType="default"
-          value={searchText}
-          onChangeText={text => setSearchText(text)}
-          onSubmitEditing={handleSearch}
-        />
-      </View>
-    </View>
-  );
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.searchContainer}>
+                <TouchableOpacity onPress={handleSearch} style={styles.iconContainer}>
+                    <Icon name="search" size={24} color="#000"/>
+                </TouchableOpacity>
+                <TextInput
+                    placeholder="Search recipes"
+                    style={styles.input}
+                    keyboardType="default"
+                    value={searchText}
+                    onChangeText={text => setSearchText(text)}
+                    onSubmitEditing={handleSearch}/>
+            </View>
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 10,
+    paddingHorizontal: 5,
     paddingBottom: 2,
-    paddingTop: 10
+    paddingTop: 10,
+    position: "relative",
+    right: 25
   } as ViewStyle,
   searchContainer: {
     flexDirection: "row",
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    padding: 5,
+    padding: 2,
     borderRadius: 999,
     borderWidth: 1,
     borderColor: "#ccc",
@@ -54,10 +62,10 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   input: {
-    marginLeft: 40,
+    marginLeft: 10,
     flex: 1,
     fontSize: 16,
-    paddingVertical: 10,
+    paddingVertical: 15,
   },
   iconContainer: {
     padding: 6

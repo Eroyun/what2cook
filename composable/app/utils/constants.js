@@ -1,3 +1,6 @@
+import { Dimensions } from "react-native";
+const { width, height } = Dimensions.get("window");
+
 export const ingredients = [
     {
         key: 1,
@@ -97,14 +100,17 @@ export const recipes = [
 
 export const time = [
     {
+        key: 0,
+        value: "Under 30 mins"
+    }, {
         key: 1,
-        value: "less 30min"
+        value: "30-60 mins"
     }, {
         key: 2,
-        value: "between 30min and 1h"
+        value: "1-4 hours"
     }, {
         key: 3,
-        value: "more 1h"
+        value: "Over 4 hours"
     }
 ];
 
@@ -179,6 +185,29 @@ export const categories = [
     }
 ]
 
+export const ratings = [
+    {
+        id: 1,
+        label: 1,
+    },
+    {
+        id: 2,
+        label: 2,
+    },
+    {
+        id: 3,
+        label: 3,
+    },
+    {
+        id: 4,
+        label: 4,
+    },
+    {
+        id: 5,
+        label: 5,
+    }
+]
+
 export const SIZES = {
     // global sizes
     base: 8,
@@ -198,6 +227,8 @@ export const SIZES = {
     body3: 16,
     body4: 14,
     body5: 12,
+    width,
+    height
 };
 
 export const myProfile = {
