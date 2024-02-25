@@ -1,0 +1,5 @@
+fastapi
+qdrant-client
+sentence-transformers
+uvicorn
+debugpy
