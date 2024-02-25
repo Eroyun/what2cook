@@ -1,23 +1,59 @@
-# what2cook
+# **What2Cook**
 
-## Back End Architecture
+## **Getting Started**
 
-This application's back end utilizes a two-branch modular design:
+### **Prerequisites:**
 
-**1. qdrant-collection**:
+- Python 3.9 (or later)
+- Docker (Install Docker Desktop)
 
-- Focuses on data preparation for efficient searching in Qdrant.
-- Handles:
-  - **Cleaning:** Removing unnecessary data and unwanted values.
-  - **Preparation:** Modifying the values in some columns to enable range search.
-  - **Collection Management:** Creating and maintaining the data collection within Qdrant. This aplication uses free tier so it aims to use less RAM and more disk. If you have more resources you can remove on_disk attributes to use more RAM to increase speed.
+### **Building and running the application:**
 
-**2. flask-search**:
+```bash
+docker compose up
+```
 
-- Provides APIs for searching and filtering the Qdrant collection.
-- Key functionalities:
-  - **Flask Endpoints:** Accepts search queries and filter parameters.
-  - **Qdrant Integration:** Executes searches and filters using Qdrant capabilities.
-  - **Data Delivery:** Returns results as JSON for consumption by various applications.
+If you made changes in the code that requires rebuild:
 
-This modular approach promotes clarity, maintainability, and scalability. It allows independent development and updates while ensuring seamless integration between data preparation and search functionalities.
+```bash
+docker compose up --build
+```
+
+Debug your code:
+
+```bash
+docker compose -f compose.debug.yaml up
+```
+
+**Note**: Docker may hang during the attaching process. To resolve this, initiate your debugger in Visual Studio Code.
+
+### **Pushing to an Azure Container Registry:**
+
+1. **Enable Admin User:**
+
+   - Access your container registry in the Azure portal.
+   - Navigate to **Access keys** under **Settings**.
+   - Enable the **Admin user** option.
+   - Note down the username and password that will be displayed, as you'll need them for logging in.
+
+2. **Log in to the container registry:**
+
+   Replace `<registry_name>` with the actual name of your container registry.
+
+   ```bash
+   docker login <registry_name>
+   ```
+
+   Enter the username and password you noted down in the previous step when prompted.
+
+3. **Tag the Docker image:**
+
+   ```bash
+   docker tag what2cook <registry_name>/what2cook
+   ```
+
+4. **Push the image to the registry:**
+
+   ```bash
+   docker push <registry_name>/what2cook
+   ```
