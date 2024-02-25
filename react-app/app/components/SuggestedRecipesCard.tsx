@@ -2,10 +2,7 @@ import React from "react";
 import {
   View,
   Text,
-  Image,
   StyleSheet,
-  FlatList,
-  ImageSourcePropType,
   Pressable,
   ScrollView,
   ImageBackground,
@@ -60,8 +57,8 @@ const SuggestedRecipesCard = ({ recipes }: { recipes: Recipe[] }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16, // Add horizontal padding to create space between items
-    paddingBottom: 125, // Remove bottom padding to reduce space between title and bottom of container
+    paddingHorizontal: 16,
+    paddingBottom: 125,
   },
   titleText: {
     fontSize: 20,
@@ -80,7 +77,7 @@ const styles = StyleSheet.create({
     shadowRadius: 7,
     borderRadius: 16,
     marginVertical: 16,
-    marginRight: 16, // Add right margin to create space between items
+    marginRight: 16,
     alignItems: "center",
     paddingHorizontal: 8,
     paddingVertical: 8,
