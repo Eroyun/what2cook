@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { View, TextInput, Text, StyleSheet, ViewStyle } from "react-native";
-import { Search, MapPin, Sliders } from "react-feather";
-import { COLORS } from "../utils/constants";
-import { SearchRecipesProps } from '../utils/app_types'
+import { View, TextInput, StyleSheet, TouchableOpacity, ViewStyle } from "react-native";
 import { Icon } from "react-native-elements";
+import { SearchRecipesProps } from '../utils/app_types'
+
 const RecipesSearch = ({ onSearch }: SearchRecipesProps) => {
   const [searchText, setSearchText] = useState("");
 
@@ -14,13 +13,16 @@ const RecipesSearch = ({ onSearch }: SearchRecipesProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
-        <Icon name="search" style={styles.iconContainer} />
+        <TouchableOpacity onPress={handleSearch} style={styles.iconContainer}>
+          <Icon name="search" size={24} color="#000" />
+        </TouchableOpacity>
         <TextInput
           placeholder="Search recipes"
           style={styles.input}
           keyboardType="default"
           value={searchText}
-          onChangeText={handleSearch}
+          onChangeText={text => setSearchText(text)}
+          onSubmitEditing={handleSearch}
         />
       </View>
     </View>
@@ -33,13 +35,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 10,
     paddingBottom: 2,
+    paddingTop: 10
   } as ViewStyle,
   searchContainer: {
     flexDirection: "row",
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    padding: 1,
+    padding: 5,
     borderRadius: 999,
     borderWidth: 1,
     borderColor: "#ccc",
@@ -54,10 +57,10 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     flex: 1,
     fontSize: 16,
-    paddingVertical: 8,
+    paddingVertical: 10,
   },
   iconContainer: {
-    padding: 5
+    padding: 6
   },
 });
 

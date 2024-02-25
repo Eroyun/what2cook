@@ -34,7 +34,7 @@ const RecipesPageFooter = () => {
             <View
                 style={{
                 flex: 1,
-                top: 25,
+                top: 45,
                 flexDirection: 'row',
                 paddingHorizontal: SIZES.radius,
                 paddingBottom: 5,
