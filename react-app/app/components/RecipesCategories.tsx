@@ -11,17 +11,33 @@ import { categories } from "../utils/constants";
 import { categoriesStyles } from "../theme/components/theme";
 import Ionicons from "@expo/vector-icons/FontAwesome";
 import Api from "../api/qdrant";
+import { Recipe } from "../utils/app_types";
 
-const RecipesCategories: React.FC = () => {
+interface Category {
+  key: string;
+  value: string;
+}
+
+interface RecipesCategoriesProps {
+  setCategoryData: (category: Recipe[]) => void;
+}
+
+const RecipesCategories = ({ setCategoryData }: RecipesCategoriesProps) => {
   const api = new Api();
-  const [selectedCategory, setSelectedCategory] = useState("breakfast");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-  const handleCategoryPress = (category: any) => {
-    console.log(category.value);
+  useEffect(() => {
+    handleCategoryPress({ key: "breakfast", value: "Breakfast" });
+  }, []);
+
+  const handleCategoryPress = (category: Category) => {
     api
       .get("filter-category", { category: category.value })
       .then((response) => {
-        console.log(response.data);
+        if (response.data && response.data.length > 0) {
+          console.log(response.data);
+          setCategoryData(response.data);
+        }
       });
     setSelectedCategory(category.key);
   };

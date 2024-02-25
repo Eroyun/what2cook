@@ -1,33 +1,30 @@
-import {ImageSourcePropType} from "react-native";
-export interface SearchRecipesProps {
-    onSearch : (searchText : string) => void;
-}
+import { ImageSourcePropType } from "react-native";
 
 export interface Ingredient {
-    id : number;
-    name : string;
-    img : ImageSourcePropType;
+  id: number;
+  name: string;
+  img: ImageSourcePropType;
 }
 export interface Calorie {
-  id : number;
-  value : string;
+  id: number;
+  value: string;
 }
 export interface Time {
-    id : number;
-    name : string;
+  id: number;
+  name: string;
 }
 
 export interface Recipe {
-    id : number;
-    title : string;
-    image : ImageSourcePropType;
-    description : string;
-    time : string;
-    rating : number;
+  RecipeId: number;
+  Name: string;
+  Images: string;
+  Description: string;
+  TotalTime: string;
+  AggregatedRating: number;
 }
 
 export interface RecipeCardProps {
-    recipe : Recipe;
+  recipe: Recipe;
 }
 
 export type RootStackParamList = {

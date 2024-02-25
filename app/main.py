@@ -87,7 +87,7 @@ async def filterCategory(category: str):
             scroll_filter=models.Filter(
                 must_not=[
                     models.FieldCondition(
-                        key="color",
+                        key="RecipeCategory",
                         match=models.MatchAny(any=categories),
                     )
                 ],
@@ -101,6 +101,10 @@ async def filterCategory(category: str):
                     models.FieldCondition(
                         key="RecipeCategory",
                         match=models.MatchText(text=category)
+                    ),
+                    models.FieldCondition(
+                        key="ReviewCount",
+                         range=models.Range(gte=100.0)
                     )
                 ]
             ),

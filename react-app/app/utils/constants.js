@@ -64,56 +64,6 @@ export const ingredients = [
     value: "milk",
   },
 ];
-export const recipes = [
-  {
-    id: 1,
-    title: "Pasta Carbonara",
-    image: require("../../assets/test/test.jpg"),
-    description: "A classic Italian pasta dish with eggs, cheese, and bacon.",
-    time: "30 minutes",
-    rating: 4.5,
-  },
-  {
-    id: 2,
-    title: "Chicken Stir-Fry",
-    image: require("../../assets/test/test.jpg"),
-    description: "A quick and easy stir-fry with chicken and vegetables.",
-    time: "20 minutes",
-    rating: 4.2,
-  },
-  {
-    id: 3,
-    title: "Pasta Carbonara",
-    image: require("../../assets/test/test.jpg"),
-    description: "A classic Italian pasta dish with eggs, cheese, and bacon.",
-    time: "30 minutes",
-    rating: 4.5,
-  },
-  {
-    id: 4,
-    title: "Chicken Stir-Fry",
-    image: require("../../assets/test/test.jpg"),
-    description: "A quick and easy stir-fry with chicken and vegetables.",
-    time: "20 minutes",
-    rating: 4.2,
-  },
-  {
-    id: 5,
-    title: "Pasta Carbonara",
-    image: require("../../assets/test/test.jpg"),
-    description: "A classic Italian pasta dish with eggs, cheese, and bacon.",
-    time: "30 minutes",
-    rating: 4.5,
-  },
-  {
-    id: 6,
-    title: "Chicken Stir-Fry",
-    image: require("../../assets/test/test.jpg"),
-    description: "A quick and easy stir-fry with chicken and vegetables.",
-    time: "20 minutes",
-    rating: 4.2,
-  },
-];
 
 export const time = [
   {
