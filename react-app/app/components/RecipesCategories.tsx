@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { categories } from "../utils/constants";
 import { categoriesStyles } from "../theme/components/theme";
@@ -40,26 +40,23 @@ const RecipesCategories = ({ setCategoryData }: RecipesCategoriesProps) => {
       <View style={categoriesStyles.filterCategories}>
         <View>
           <Text>Categories</Text>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          >
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {categories.map((category) => (
               <View key={category.key} style={categoriesStyles.categoryItem}>
                 <TouchableOpacity
                   onPress={() => handleCategoryPress(category)}
                   style={[
                     categoriesStyles.icon,
-                    selectedCategory === category.key && categoriesStyles.selectedIcon,
+                    selectedCategory === category.key &&
+                      categoriesStyles.selectedIcon,
                   ]}
                 >
-                  <Image source={category.image} style={[
-                    categoriesStyles.categoryImage
-                  ]} />
+                  <Image
+                    source={category.image}
+                    style={[categoriesStyles.categoryImage]}
+                  />
                 </TouchableOpacity>
-                <Text style={categoriesStyles.text}>
-                  {category.value}
-                </Text>
+                <Text style={categoriesStyles.text}>{category.value}</Text>
               </View>
             ))}
           </ScrollView>
