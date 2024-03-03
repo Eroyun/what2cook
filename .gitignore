@@ -3,3 +3,4 @@
 qdrantenv
 data
 __pycache__
+models_cache
