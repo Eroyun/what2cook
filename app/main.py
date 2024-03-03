@@ -41,8 +41,7 @@ async def search(query: Optional[str] = Body(None), limit: Optional[int] = Body(
             )
         ),
     )
-    return [{'payload': hit.payload, 'score': hit.score}
-            for hit in hits]
+    return [{**hit.payload, 'score': hit.score} for hit in hits]
 
 
 @app.post('/filter')
