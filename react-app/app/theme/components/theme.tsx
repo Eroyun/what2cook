@@ -170,7 +170,7 @@ export const categoriesStyles = StyleSheet.create({
     text: {
         color: COLORS.accent,
         textAlign: 'center', // Center text horizontally
-        marginTop: 5,
+        marginTop: 5
     },
     container: {
         flex: 1,
@@ -204,5 +204,86 @@ export const categoriesStyles = StyleSheet.create({
         alignItems: 'center', // Center items vertically in the container
         justifyContent: 'center', // Center items horizontally in the container
         marginRight: 10, // Add space to the right of each category item
-      }
+    }
+});
+
+export const homepageStylesRecipeCard = StyleSheet.create({
+    item: {
+        backgroundColor: "white",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4
+        },
+        shadowOpacity: 0.1,
+        borderRadius: 16,
+        marginVertical: 16,
+        marginRight: 16,
+        flexDirection: "row",
+        alignItems: "flex-start",
+        paddingHorizontal: 16, // Adjust padding
+        paddingVertical: 8, // Adjust padding
+        position: 'relative', // Position relative for absolute positioning
+    },
+    imageContainer: {
+        overflow: "hidden",
+        borderRadius: 90,
+        top: 10
+    },
+    image: {
+        width: 100,
+        height: 100,
+        resizeMode: "cover"
+    },
+    moreInfo: {
+        position: "absolute",
+        top: 8,
+        left: 8,
+        flexDirection: "row",
+        alignItems: "center",
+        backgroundColor: COLORS.main,
+        borderRadius: 50,
+        opacity: 0.8
+    },
+    moreInfoText: {
+        color: "white",
+        fontSize: 16,
+        marginRight: 4
+    },
+    time: {
+        color: "white",
+        fontSize: 12
+    },
+    detailsContainer: {
+        width: 170, // Adjust the width as needed
+        height: 120,
+        marginLeft: 8,
+        marginTop: 8, // Adjust the top margin
+        justifyContent: "space-between",
+        flexShrink: 1, // Ensure it doesn't grow based on content
+    },
+    itemTitle: {
+        fontSize: 16,
+        marginTop: 10, // Adjust the top margin
+        flexWrap: 'wrap', // Allow title to wrap to the next line
+    },
+    starRatingContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 5, // Adjust the margin as needed
+    },
+    detailsButton: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 8, // Adjust the top margin
+    },
+    detailsButtonText: {
+        color: COLORS.main,
+        marginRight: 8
+    },
+    favoriteButton: {
+        position: 'absolute',
+        top: 8,
+        right: 12
+    }
 });

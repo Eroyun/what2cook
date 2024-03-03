@@ -31,7 +31,7 @@ const RecipeDetailsPage: React.FC<RecipeDetailsPageProps> = ({
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={JSON.parse(recipe.Images)[0]}
+        source={{uri: JSON.parse(recipe.Images)[0]}}
         style={styles.backgroundImage}
         resizeMode="cover"
       >

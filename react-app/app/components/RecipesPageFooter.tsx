@@ -27,7 +27,6 @@ const RecipesPageFooter = () => {
           top: -20,
           left: 0,
           right: 0,
-          height: 120,
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
         }}

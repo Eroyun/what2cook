@@ -63,8 +63,8 @@ const FilterModal = ({ isVisible, onClose }) => {
     outputRange: [SIZES.height, SIZES.height - 680],
   });
 
-  const [timeValue, setTimeValue] = useState(0);
-  const [ratingsValue, setRatingsValue] = useState(0);
+  const [timeValue, setTimeValue] = useState();
+  const [ratingsValue, setRatingsValue] = useState();
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
   const api = new Api();
