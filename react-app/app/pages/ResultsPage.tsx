@@ -27,28 +27,67 @@ type ResultsPageProps = {
 
 const ResultsPage: React.FC<ResultsPageProps> = ({ navigation, route }) => {
   const { results } = route.params;
+
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <SafeAreaView>
-        <Pressable onPress={() => navigation.goBack()}>
+        <Pressable onPress={() => navigation.goBack()} style={styles.backContainer}>
           <FontAwesome
             name={"arrow-left"}
-            size={16}
-            color={"rgba(255, 255, 255, 0.8)"}
+            size={20}
+            color={"black"}
           />
         </Pressable>
       </SafeAreaView>
-      {results.map((recipe: Recipe) => (
-        <RecipeCard key={recipe.RecipeId} recipe={recipe} />
-      ))}
-    </View>
+
+      <View style={styles.recipeContainer}>
+        {results.length > 0 ? (
+          <>
+            <Text style={styles.resultsText}>
+              {results.length} {results.length === 1 ? "recipe" : "recipes"} found
+            </Text>
+            {results.map((recipe: Recipe) => (
+              <RecipeCard key={recipe.RecipeId} recipe={recipe}/>
+            ))}
+          </>
+        ) : (
+          <View style={styles.noResultsContainer}>
+            <Text style={styles.noResultsText}>No recipes found</Text>
+          </View>
+        )}
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.accent,
+    backgroundColor: COLORS.background,
+    padding: 15
+  },
+  recipeContainer: {
+    backgroundColor: COLORS.white,
+    padding: 20, // Adjust padding as needed
+    borderRadius: 30, // Add borderRadius
+  },
+  backContainer: {
+    paddingBottom: 10,
+  },
+  resultsText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 10,
+    textAlign: "center"
+  },
+  noResultsContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+  },
+  noResultsText: {
+    fontSize: 18,
+    color: COLORS.gray,
   },
 });
 

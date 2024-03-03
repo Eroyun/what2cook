@@ -5,8 +5,6 @@ import { Recipe } from "../utils/app_types";
 import RecipeCard from "./RecipeCard";
 
 const SuggestedRecipesCard = ({ recipes }: { recipes: Recipe[] }) => {
-  const navigation = useNavigation();
-
   return (
     <View>
       <Text style={styles.titleText}>Popular recipes</Text>
@@ -16,7 +14,7 @@ const SuggestedRecipesCard = ({ recipes }: { recipes: Recipe[] }) => {
         contentContainerStyle={styles.container}
       >
         {recipes.map((recipe: Recipe) => (
-          <RecipeCard key={recipe.RecipeId} recipe={recipe} />
+          <RecipeCard key={recipe.RecipeId} recipe={recipe}/>
         ))}
       </ScrollView>
     </View>

@@ -213,7 +213,6 @@ const CustomDrawer = () => {
   };
 
   const drawerIcon = ({ focused, size }, name) => {
-    console.log("dhsudau");
     return <Icon name={name} size={size} color={"black"} />;
   };
 
