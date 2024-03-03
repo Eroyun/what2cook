@@ -13,6 +13,9 @@ import IconButton from "../components/IconButton";
 import TextButton from "../components/TextButton";
 import TextIconButton from "../components/TextIconButton";
 import { MultipleSelectList } from "react-native-dropdown-select-list";
+import Api from "../api/qdrant";
+import { useNavigation } from "@react-navigation/native";
+
 const Section = ({ containerStyle, title, children }) => {
   return (
     <View
@@ -63,6 +66,27 @@ const FilterModal = ({ isVisible, onClose }) => {
   const [timeValue, setTimeValue] = useState(0);
   const [ratingsValue, setRatingsValue] = useState(0);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+
+  const api = new Api();
+  const navigation = useNavigation();
+
+  const handleFilter = () => {
+    const filters = {
+      totalTime: timeValue !== 0 ? timeValue : null,
+      ingredients: selectedIngredients.length > 0 ? selectedIngredients : null,
+    };
+
+    api
+      .post("filter", filters)
+      .then((response) => {
+        // Redirect to the search result page with the results
+        navigation.navigate("ResultsPage", { results: response.data });
+        setShowFilterModal(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   function renderTime() {
     return (
@@ -249,11 +273,6 @@ const FilterModal = ({ isVisible, onClose }) => {
 
           <View
             style={{
-              position: "absolute",
-              bottom: 150,
-              left: 0,
-              right: 0,
-              height: 110,
               paddingHorizontal: SIZES.padding,
               paddingVertical: SIZES.radius,
               backgroundColor: COLORS.white,
@@ -262,11 +281,12 @@ const FilterModal = ({ isVisible, onClose }) => {
             <TextButton
               label="Apply Filters"
               buttonContainerStyle={{
+                marginBottom: 200,
                 height: 50,
                 borderRadius: SIZES.base,
                 backgroundColor: COLORS.primary,
               }}
-              onPress={() => console.log("Apply")}
+              onPress={handleFilter}
             />
           </View>
         </Animated.View>

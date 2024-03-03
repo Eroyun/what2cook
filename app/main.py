@@ -5,6 +5,7 @@ from sentence_transformers import SentenceTransformer
 from app.helpers.filter_helpers import get_time_range
 from typing import Optional
 import os
+from typing import List
 
 app = FastAPI()
 
@@ -45,7 +46,7 @@ async def search(query: Optional[str] = Body(None), limit: Optional[int] = Body(
 
 
 @app.post('/filter')
-async def filter(totalTime: Optional[int] = Body(None), ingredient: Optional[str] = Body(None)):
+async def filter(totalTime: Optional[int] = Body(None), ingredients: Optional[List[str]] = Body(None)):
 
     must = []
 
@@ -62,11 +63,12 @@ async def filter(totalTime: Optional[int] = Body(None), ingredient: Optional[str
             )
         ))
 
-    if ingredient is not None:
-        must.append(models.FieldCondition(
-            key="RecipeIngredientParts",
-            match=models.MatchText(text=ingredient)
-        ))
+    if ingredients is not None:
+        for ingredient in ingredients:
+            must.append(models.FieldCondition(
+                key="RecipeIngredientParts",
+                match=models.MatchText(text=ingredient)
+            ))
 
     hits = qdrant.scroll(
         collection_name="recipes",

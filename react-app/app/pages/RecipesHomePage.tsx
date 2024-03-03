@@ -17,8 +17,8 @@ const RecipesHomePage = ({ drawerAnimationStyle }) => {
   const setCategoryData = (categoryData: Recipe[]) => {
     setRecipes([...categoryData]);
   };
-  const navigation = useNavigation();
 
+  const navigation = useNavigation();
   const api = new Api();
 
   const handleSearch = (searchText: string) => {
@@ -29,7 +29,7 @@ const RecipesHomePage = ({ drawerAnimationStyle }) => {
       .post("search", body)
       .then((response) => {
         // Redirect to the search result page with the results
-        navigation.navigate("SearchResults", { results: response.data });
+        navigation.navigate("ResultsPage", { results: response.data });
       })
       .catch((err) => {
         console.error(err);
