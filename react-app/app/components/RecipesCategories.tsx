@@ -28,7 +28,6 @@ const RecipesCategories = ({ setCategoryData }: RecipesCategoriesProps) => {
       .get("filter-category", { category: category.value })
       .then((response) => {
         if (response.data && response.data.length > 0) {
-          console.log(response.data);
           setCategoryData(response.data);
         }
       });

@@ -10,12 +10,14 @@ import RecipesPageFooter from "../components/RecipesPageFooter";
 import FilterModal from "../pages/FilterModel";
 import Api from "../api/qdrant";
 import { Recipe } from "../utils/app_types";
+import { useNavigation } from "@react-navigation/native";
 
 const RecipesHomePage = ({ drawerAnimationStyle }) => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const setCategoryData = (categoryData: Recipe[]) => {
     setRecipes([...categoryData]);
   };
+  const navigation = useNavigation();
 
   const api = new Api();
 
@@ -26,7 +28,8 @@ const RecipesHomePage = ({ drawerAnimationStyle }) => {
     api
       .post("search", body)
       .then((response) => {
-        console.log(response.data);
+        // Redirect to the search result page with the results
+        navigation.navigate("SearchResults", { results: response.data });
       })
       .catch((err) => {
         console.error(err);
@@ -34,7 +37,6 @@ const RecipesHomePage = ({ drawerAnimationStyle }) => {
   };
 
   const [showFilterModal, setShowFilterModal] = useState(false);
-  console.log(showFilterModal);
 
   return (
     <SafeAreaView
