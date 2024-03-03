@@ -249,11 +249,6 @@ const FilterModal = ({ isVisible, onClose }) => {
 
           <View
             style={{
-              position: "absolute",
-              bottom: 150,
-              left: 0,
-              right: 0,
-              height: 110,
               paddingHorizontal: SIZES.padding,
               paddingVertical: SIZES.radius,
               backgroundColor: COLORS.white,
@@ -262,6 +257,7 @@ const FilterModal = ({ isVisible, onClose }) => {
             <TextButton
               label="Apply Filters"
               buttonContainerStyle={{
+                marginBottom: 200,
                 height: 50,
                 borderRadius: SIZES.base,
                 backgroundColor: COLORS.primary,
