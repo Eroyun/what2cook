@@ -1,4 +1,4 @@
-from qdrant_client import QdrantClient
+from qdrant_client import QdrantClient, models
 import os
 
 client = QdrantClient(
@@ -21,11 +21,8 @@ client.create_payload_index(
 client.create_payload_index(
     collection_name="recipes",
     field_name="RecipeCategory",
-    field_schema="text"
-)
-
-client.create_payload_index(
-    collection_name="recipes",
-    field_name="ReviewCount",
-    field_schema="integer"
+    field_schema=models.TextIndexParams(
+        type=models.TextIndexType.TEXT,
+        tokenizer=models.TokenizerType.WORD
+    )
 )
