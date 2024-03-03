@@ -17,3 +17,15 @@ client.create_payload_index(
     field_name="RecipeIngredientParts",
     field_schema="text"
 )
+
+client.create_payload_index(
+    collection_name="recipes",
+    field_name="RecipeCategory",
+    field_schema="text"
+)
+
+client.create_payload_index(
+    collection_name="recipes",
+    field_name="ReviewCount",
+    field_schema="integer"
+)
