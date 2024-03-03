@@ -42,7 +42,7 @@ async def search(query: Optional[str] = Body(None), limit: Optional[int] = Body(
         ),
     )
     return [{'payload': hit.payload, 'score': hit.score}
-               for hit in hits]
+            for hit in hits]
 
 
 @app.post('/filter')
@@ -76,6 +76,7 @@ async def filter(totalTime: Optional[int] = Body(None), ingredient: Optional[str
         ),
     )[0]
     return [hit.payload for hit in hits]
+
 
 @app.get('/filter-category')
 async def filterCategory(category: str):
@@ -123,4 +124,3 @@ async def filterCategory(category: str):
         gte -= 25.0
 
     return [hit.payload for hit in hits]
-

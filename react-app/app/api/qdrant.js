@@ -1,8 +1,8 @@
 import axios from "axios";
 
 class Api {
-  constructor(baseURL = "http://localhost:5000") {
-    this.baseURL = baseURL;
+  constructor() {
+    this.baseURL = process.env.EXPO_PUBLIC_BASE_URL;
   }
 
   async get(endpoint, params = {}) {
