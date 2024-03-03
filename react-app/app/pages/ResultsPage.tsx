@@ -16,8 +16,8 @@ import { Recipe } from "../utils/app_types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../utils/app_types";
 
-type SearchResultsPageProps = {
-  navigation: StackNavigationProp<RootStackParamList, "SearchResults">;
+type ResultsPageProps = {
+  navigation: StackNavigationProp<RootStackParamList, "ResultsPage">;
   route: {
     params: {
       results: Recipe[];
@@ -25,10 +25,7 @@ type SearchResultsPageProps = {
   };
 };
 
-const SearchResultsPage: React.FC<SearchResultsPageProps> = ({
-  navigation,
-  route,
-}) => {
+const ResultsPage: React.FC<ResultsPageProps> = ({ navigation, route }) => {
   const { results } = route.params;
   return (
     <View style={styles.container}>
@@ -55,4 +52,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchResultsPage;
+export default ResultsPage;

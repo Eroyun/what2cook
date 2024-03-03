@@ -29,6 +29,6 @@ export interface RecipeCardProps {
 
 export type RootStackParamList = {
   RecipeDetails: { recipe: Recipe };
-  SearchResults: { results: Recipe[] };
+  ResultsPage: { results: Recipe[] };
   // Add other screen names and their corresponding parameters here
 };
