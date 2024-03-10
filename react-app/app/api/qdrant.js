@@ -2,7 +2,7 @@ import axios from "axios";
 
 class Api {
   constructor() {
-    this.baseURL = process.env.EXPO_PUBLIC_BASE_URL;
+    this.baseURL = process.env.EXPO_PUBLIC_QDRANT_URL;
   }
 
   async get(endpoint, params = {}) {
