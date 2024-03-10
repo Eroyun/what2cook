@@ -1,12 +1,27 @@
 # **What2Cook**
 
-## **Getting Started**
+## **Before Starting**
+
+### **Setting Up Qdrant Credentials**
+
+Follow these steps to create and get Qdrant credentials:
+
+1. Go to [Qdrant's login page](https://cloud.qdrant.io/login) and sign up for an account.
+2. After logging in, navigate to the `Data Access Control` tab and create a new API key. Make sure to save this key somewhere safe.
+3. Next, go to the `Clusters` tab and create a new cluster. After creating the cluster, it will provide you with a URL.
+4. Copy the API key and the cluster URL.
+5. Open the `.env` file in your project root directory and add the following lines:
+
+   ```properties
+   QDRANT_URL=<your_cluster_url>
+   QDRANT_KEY=<your_api_key>
+   ```
 
 ### **Prerequisites**
 
 - Docker ([Install Docker Desktop](https://www.docker.com/products/docker-desktop/))
 
-### **Before Starting**
+## **Getting Started**
 
 For local development, it's important to run the backend and frontend applications in separate terminal instances. This allows both applications to run concurrently without interfering with each other's processes.
 
@@ -40,6 +55,14 @@ To set up the frontend application, first navigate to the react-app directory an
 cd react-app
 npm install
 ```
+
+After setting up the frontend application and installing the necessary packages, you need to create a .env file in the react-app directory. This file should contain the EXPO_PUBLIC_QDRANT_URL key. The value for this key can be either http://localhost:5000 or the IP address of your device in your local network, such as http://192.168.1.x:5000. Here's how you can do it:
+
+```
+echo EXPO_PUBLIC_QDRANT_URL=http://localhost:5000 > .env
+```
+
+Replace http://localhost:5000 with your local network IP address if needed.
 
 Once the packages are installed, you can run the Expo app with the following command:
 
