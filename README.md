@@ -75,9 +75,9 @@ After setting up the environment and the dataset, the next step is to clean and 
 2. Run the `data_cleaning.py` script. This script will perform necessary cleaning and modifications to the `recipes.csv` file inside the `data` folder.
 3. After running the script, a new file named `modified_recipes.csv` will be created inside the `data/collection` folder.
 
-## Setting Up Qdrant Collection
+## Setting Up Qdrant Credentials
 
-After setting up the environment, you need to create a collection in Qdrant. Follow these steps:
+To set up your environment for Qdrant, you need to create an account and obtain the necessary credentials. Here are the steps:
 
 1. Go to [Qdrant's login page](https://cloud.qdrant.io/login) and sign up for an account.
 2. After logging in, navigate to the `Data Access Control` tab and create a new API key. Make sure to save this key somewhere safe.
@@ -89,3 +89,21 @@ After setting up the environment, you need to create a collection in Qdrant. Fol
    QDRANT_URL=<your_cluster_url>
    QDRANT_KEY=<your_api_key>
    ```
+
+## Creating Qdrant Collection
+
+After setting up the Qdrant collection, you need to run some scripts in the `qdrant` folder. Follow these steps:
+
+1. Run the `create_collection.py` script.
+
+**Important Notes:**
+
+> - The `create_collection.py` script may take a long time to complete, potentially several hours depending on your internet connection.
+> - The configurations in this script may not be optimal for everyone. You may need to check the Qdrant documentation for the best scenario for your use case.
+> - If necessary, you can scale up your Qdrant cluster by opting for a paid plan.
+> - If you do not wish to upload the entire dataset, you can interrupt the script at any time and proceed to the next scripts.
+
+2. Next, run the `index_payload.py` script.
+3. Finally, run the `update_collection.py` script.
+
+These scripts will create and configure the Qdrant collection for your application.
