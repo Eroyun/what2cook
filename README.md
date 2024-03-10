@@ -17,6 +17,10 @@ Follow these steps to create and get Qdrant credentials:
    QDRANT_KEY=<your_api_key>
    ```
 
+### **Creating Qdrant Collection**
+
+There is a branch called `feature/qdrant` dedicated to creating a Qdrant collection and uploading the [Food.com Recipes and Reviews](https://www.kaggle.com/datasets/irkaal/foodcom-recipes-and-reviews) dataset to Qdrant. In order for this application to function correctly, you need to switch to the `feature/qdrant` branch and follow the instructions there before running the app.
+
 ### **Prerequisites**
 
 - Docker ([Install Docker Desktop](https://www.docker.com/products/docker-desktop/))
